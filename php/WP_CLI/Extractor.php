@@ -68,7 +68,7 @@ class Extractor {
 	 */
 	private static function extract_tarball( $tarball, $dest ) {
 		if ( ! class_exists( 'PharData' ) ) {
-			$cmd = "tar xz --strip-components=1 --directory=%s -f $tarball";
+			$cmd = "tar xz --strip-components=1 --directory=%s --preserve-permissions -f $tarball";
 			WP_CLI::launch( Utils\esc_cmd( $cmd, $dest ) );
 			return;
 		}
